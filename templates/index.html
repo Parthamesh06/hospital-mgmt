@@ -9,7 +9,81 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
     <link rel="shortcut icon" href="{{ url_for('static', filename='assests/gu-favicon.png')}}" type="image/x-icon">
     <title>Galgotias Hospital</title>
+    <style>
+        /* Style for the circular button */
+        .circle-button {
+            background-color: #007bff;
+            /* Set button background color */
+            color: #fff;
+            /* Set button text color */
+            width: 60px;
+            /* Set button width */
+            height: 60px;
+            /* Set button height */
+            border-radius: 50%;
+            /* Make the button circular */
+            border: none;
+            cursor: pointer;
+            position: fixed;
+            /* Position the button */
+            bottom: 20px;
+            /* Distance from the bottom of the viewport */
+            right: 20px;
+            /* Distance from the right of the viewport */
+            z-index: 9999;
+            /* Set z-index to ensure it's above other elements */
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+            /* Add shadow for depth */
+            transition: background-color 0.3s ease;
+            /* Add transition effect for smoother hover */
+        }
+
+        /* Change button background color on hover */
+        .circle-button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Style for the navigation bar */
+        .navbar {
+            position: fixed;
+            /* Position the navigation bar */
+            bottom: calc(20px + 60px + 10px);
+            /* Position just above the circular button */
+            right: calc(20px + 60px + 10px);
+            /* Position just to the left of the circular button */
+            z-index: 9998;
+            /* Set z-index to ensure it's above the circular button */
+            background-color: #f8f9fa;
+            /* Set navigation bar background color */
+            border: 1px solid #ddd;
+            /* Add border */
+            border-radius: 5px;
+            /* Add border radius */
+            padding: 10px;
+            /* Add padding */
+            display: none;
+            /* Initially hide the navigation bar */
+        }
+
+        /* Style for navigation bar links */
+        .navbar a {
+            display: block;
+            padding: 5px;
+            text-decoration: none;
+            color: #333;
+            transition: background-color 0.3s ease;
+            /* Add transition effect */
+        }
+
+        /* Change link background color on hover */
+        .navbar a:hover {
+            background-color: #ddd;
+        }
+    </style>
+
+
 </head>
+
 
 <body>
     <div>
@@ -21,11 +95,28 @@
                 </a>
 
                 <button class="btn btn-warning text-white shadow">
+
                     <img src="{{ url_for('static', filename='assests/phone-volume-solid.svg')}}" width="20px"
                         style="color:white" alt="">
                     &nbsp;
                     +91 8969660365
+
                 </button>
+                <!-- Circular button -->
+                <!-- <button class="circle-button" onclick="toggleNavbar()">+</button> -->
+                <!-- Navigation bar -->
+                <div class="navbar" id="navbar">
+                    <!-- templates/index.html -->
+                    <nav>
+                        <ul>
+                            <a href="/">Home</a>
+                            
+                            <a href="/about">About Us</a> <!-- Add this line -->
+                        </ul>
+                    </nav>
+
+                    <!-- Add more navigation links as needed -->
+                </div>
             </div>
         </nav>
 
@@ -43,12 +134,12 @@
                         <input type="text" name="name" placeholder="Name" class="form-control" id="patient-name"
                             aria-describedby="PatientName" required>
                     </div>
-                    <select class="form-select" name="location" aria-label="Default select Delhi">
-                        <option value="Delhi" selected>Delhi</option>
+                    <select class="form-select" name="location" aria-label="Default select UttarPradesh">
+                        <option value="Delhi">Delhi</option>
                         <option value="Chandigarh">Chandigarh</option>
                         <option value="Haryana">Haryana</option>
                         <option value="Chattisgarh">Chattisgarh</option>
-                        <option value="UttarPradesh">UttarPradesh</option>
+                        <option value="UttarPradesh" selected>UttarPradesh</option>
                         <option value="Bihar">Bihar</option>
                         <option value="Jharkhand">Jharkhand</option>
                         <option value="WestBengal">WestBengal</option>
@@ -62,7 +153,11 @@
                     </select>
                     <div class="my-3">
                         <input type="number" class="form-control" id="mobile-number" name="mobile" placeholder="Mobile"
-                            required>
+                            value="{{ request.form.get('mobile', '') }}" required>
+                        {% if error_message %}
+                        <small style="color: red;">{{ error_message }}</small><br>
+                        {% endif %}
+
                     </div>
                     <button class="btn btn-warning text-white flex align-items w-full">Book an appointment</button>
                 </form>
@@ -113,21 +208,34 @@
         </section>
 
         <!-- Second Section -->
-        <section class="middle-section">
+        <section class="middle-section" style="text-align: center;" style ="padding: 1rem;">
+            <h1>Centres of Excellence</h1>
 
         </section>
 
         <!-- Footer -->
-        <footer>
+        <footer style="text-align: center;">
             <p>&copy; 2024 Galgotias Hospital. All rights reserved.</p>
+            <a href="/about">About us</a>
         </footer>
 
     </div>
 
     <!-- Other -->
+    <!-- Additional buttons -->
+
 
 
     <!-- Scripts -->
+    <!-- <script>
+        // Function to toggle the visibility of the navigation bar
+        function toggleNavbar() {
+            var navbar = document.getElementById('navbar');
+            var circleButton = document.querySelector('.circle-button');
+            navbar.style.display = navbar.style.display === 'none' ? 'block' : 'none';
+            circleButton.classList.toggle('active'); // Add or remove 'active' class
+        } -->
+    <!-- </script> -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous"></script>

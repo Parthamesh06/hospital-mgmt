@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
+body {
+    font-family: 'Roboto';
+}
+
 .head-nav {
     position: absolute;
     top: 0;
@@ -13,6 +17,7 @@
     align-items: center;
     width: 85vw;
 }
+
 
 .background {
     position: absolute;
@@ -34,6 +39,7 @@
 
 .middle-section {
     min-height: 50vh;
+    padding: auto;
     background-color: #fff;
 }
 

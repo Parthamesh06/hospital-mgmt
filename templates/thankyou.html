@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles2.css') }}">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Thank you</title>
@@ -14,7 +15,15 @@
     </style>
 </head>
 <body>
-    <h3>Thank You 🙏</h3>
-    <p>Your response have been submitted, we'll reach out you shortly.</p>
+    <div>
+    
+    
+        <a  class = "navbar-brand" href = "#">    
+            <img src="{{ url_for('static', filename='assests\thankyou2.jpg')}}"  length="500" width="300" alt="image is not available">
+        </a>
+        <h3>Thank You 🙏</h3>
+        <p>Your response have been submitted, we will reach out you shortly.</p>
+    </div>
+    
 </body>
 </html>
