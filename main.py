@@ -18,10 +18,12 @@ class Appointments(db.Model):
 @app.route("/")
 def index():
     return render_template("index.html")
-     
 
-@app.route("/make_an_appointment", methods=['POST'])
+
+@app.route("/make_an_appointment", methods=['POST', 'GET'])
 def make_an_appointment():
+    if request.method == 'GET':
+        return render_template("make_an_appointment.html")
     # Access form data using request.form
     name = request.form.get('name')
     location = request.form.get('location')
