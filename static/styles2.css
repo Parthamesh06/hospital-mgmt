@@ -1,0 +1,11 @@
+.book-an-appointment-btn {
+    position: fixed;
+    width: 100%;
+    background-color: #E8751A;
+    bottom: 0;
+    text-align: center;
+    color: #fff;
+    text-decoration: none;
+    padding: 1rem;
+    z-index: 1000;
+}

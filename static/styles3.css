@@ -42,9 +42,11 @@ body, html, * {
     font-size: 3rem;
 }
 .black-text{
-    color : black;
+    color : black
 }
-
+.whitee-text{
+    color: #fff;
+}
 .white-text {
     color: #8C6A5D;
 }

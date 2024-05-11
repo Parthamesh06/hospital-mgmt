@@ -39,8 +39,40 @@ body {
 
 .middle-section {
     min-height: 50vh;
-    padding: auto;
+    
     background-color: #fff;
+}
+.rounded-button{
+    width:60px;
+    height : 60px;
+    /* background:#fff ; */
+    color: #000;
+    display:inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border-radius: 50%;
+    border: #000;
+    text-decoration: none;
+    transition: background 0.2s;
+
+
+
+}
+.rounded-button:hover{
+    background: #F2613F ;
+}
+.icon1{
+    position: absolute;
+    
+    left: 30vb;
+
+}
+.icon3{
+    position: absolute;
+    
+    right: 30vb;
+
 }
 
 .header {

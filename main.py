@@ -51,12 +51,18 @@ def make_an_appointment():
 @app.route("/thank_you")
 def thank_you():
     return render_template("thankyou.html")
+
+
     
 
 # Add route for the About Us page
 @app.route("/about")
 def about():
     return render_template("about.html")
+
+@app.route("/login")
+def login():
+    return render_template("login.html")
 
 if __name__ == "__main__":
     app.run()
